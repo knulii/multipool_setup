@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-
-
 #########################################################
 # Source https://mailinabox.email/ https://github.com/mail-in-a-box/mailinabox
 # Updated by cryptopool.builders for crypto use...
@@ -8,28 +6,28 @@
 #########################################################
 
 if [ -z "${TAG}" ]; then
-	TAG=v1.52
+	TAG=v1.36
 fi
 
 # Clone the MultiPool repository if it doesn't exist.
-if [ ! -d $HOME/multipool/yiimp_multi ]; then
-	echo Downloading MultiPool YiiMP Multi Server Installer ${TAG}. . .
+if [ ! -d $HOME/multipool/daemon_builder ]; then
+	echo Downloading MultiPool Daemon Builder Installer ${TAG}. . .
 	git clone \
 		-b ${TAG} --depth 1 \
-		https://github.com/knulii/multipool_yiimp_multi \
-		$HOME/multipool/yiimp_multi \
+		https://github.com/knulii/multipool_coin_builder \
+		$HOME/multipool/daemon_builder \
 		< /dev/null 2> /dev/null
 
 	echo
 fi
 
 # Change directory to it.
-cd $HOME/multipool/yiimp_multi
+cd $HOME/multipool/daemon_builder
 
 # Update it.
 sudo chown -R $USER $HOME/multipool/install/.git/
 if [ "${TAG}" != `git describe --tags` ]; then
-	echo Updating MultiPool YiiMP Multi Server Installer to ${TAG} . . .
+	echo Updating Daemon Builder Installer to ${TAG} . . .
 	git fetch --depth 1 --force --prune origin tag ${TAG}
 	if ! git checkout -q ${TAG}; then
 		echo "Update failed. Did you modify something in `pwd`?"
@@ -39,5 +37,5 @@ if [ "${TAG}" != `git describe --tags` ]; then
 fi
 
 # Start setup script.
-cd $HOME/multipool/yiimp_multi
-source start.sh
+cd $HOME/multipool/daemon_builder
+source install.sh
