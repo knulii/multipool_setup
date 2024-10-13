@@ -8,7 +8,7 @@
 #########################################################
 
 if [ -z "${TAG}" ]; then
-	TAG=v1.52
+	TAG=v10.01
 fi
 
 # Clone the MultiPool repository if it doesn't exist.
@@ -16,7 +16,7 @@ if [ ! -d $HOME/multipool/yiimp_multi ]; then
 	echo Downloading MultiPool YiiMP Multi Server Installer ${TAG}. . .
 	git clone \
 		-b ${TAG} --depth 1 \
-		https://github.com/cryptopool-builders/multipool_yiimp_multi \
+		https://github.com/knulii/multipool_yiimp_multi \
 		$HOME/multipool/yiimp_multi \
 		< /dev/null 2> /dev/null
 
