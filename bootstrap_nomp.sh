@@ -8,7 +8,7 @@
 #########################################################
 
 if [ -z "${TAG}" ]; then
-	TAG=v1.14
+	TAG=v10.01
 fi
 
 # Clone the MultiPool repository if it doesn't exist.
@@ -16,7 +16,7 @@ if [ ! -d $HOME/multipool/nomp ]; then
 	echo Downloading MultiPool NOMP Server Installer ${TAG}. . .
 	git clone \
 		-b ${TAG} --depth 1 \
-		https://github.com/cryptopool-builders/multipool_nomp \
+		https://github.com/knulii/multipool_nomp \
 		$HOME/multipool/nomp \
 		< /dev/null 2> /dev/null
 
