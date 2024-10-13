@@ -6,7 +6,7 @@
 #########################################################
 
 if [ -z "${TAG}" ]; then
-	TAG=v1.36
+	TAG=v1.01
 fi
 
 # Clone the MultiPool repository if it doesn't exist.
@@ -14,7 +14,7 @@ if [ ! -d $HOME/multipool/daemon_builder ]; then
 	echo Downloading MultiPool Daemon Builder Installer ${TAG}. . .
 	git clone \
 		-b ${TAG} --depth 1 \
-		https://github.com/cryptopool-builders/multipool_coin_builder \
+		https://github.com/knulii/multipool_coin_builder \
 		$HOME/multipool/daemon_builder \
 		< /dev/null 2> /dev/null
 
